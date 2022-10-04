@@ -387,11 +387,10 @@ namespace pdqsort_detail {
 
             // Choose pivot as median of 3 or pseudomedian of 9.
             diff_t s2 = size / 2;
+            
             if (size > ninther_threshold) {
                 sort3(begin, begin + s2, end - 1, comp);
-                sort3(begin + 1, begin + (s2 - 1), end - 2, comp);
-                sort3(begin + 2, begin + (s2 + 1), end - 3, comp);
-                sort3(begin + (s2 - 1), begin + s2, begin + (s2 + 1), comp);
+                sort3(begin + (s2 - 10), begin + s2, begin, comp);
                 std::iter_swap(begin, begin + s2);
             } else sort3(begin + s2, begin, end - 1, comp);
 
